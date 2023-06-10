@@ -27,6 +27,10 @@ class User extends Authenticatable
      */
     protected $guarded = [];
 
+
+    public function colis(){
+        return $this->hasMany(colis::class);
+    }
     /*
      * The attributes that should be hidden for serialization.
      *

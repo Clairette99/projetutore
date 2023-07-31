@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('colis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->on('users')->nullable()->index();
             $table->string('name');
             $table->string('slug')->nullable();
             $table->string('poids');
             $table->string('heure_depart');
             $table->string('heure_arrivee');
             $table->boolean('is_published')->default(false);
+            $table->foreignId('emetteur_id')->on('users')->nullable()->index();
+            $table->foreignId('transporteur_id')->on('users')->nullable()->index();
+            $table->string('recepteur');
             $table->timestamps();
         });
     }

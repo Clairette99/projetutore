@@ -13,7 +13,7 @@ j utilise ici xamp
         une fois fait je configure filament  en allant sur config -> filament -> j active le dark en mettant true - ensuite sur le footer mettre sur false
 
 bon entrons maintenant dans le code ces code c est pour les permission
-    composer require spatie/laravel-permission
+    composer require spatie/laravel-permission 
     php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
     php artisan make:migration add_is_to_users_table
     php artisan make:seeder RolesAndPermissionsSeeder
@@ -21,7 +21,11 @@ bon entrons maintenant dans le code ces code c est pour les permission
             // Reset cached roles and permissions
             app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();  ici nous avons des modifications a apporter
             au niveau du databaseseeder il y a des champs a remplir
-    php artisan migrate:fresh
+    php artisan migrate:fresh  php artisan db:seed --class=Userstableseeder
 
-    
+
+php artisan make:filament-resource Permission --simple
+php artisan make:filament-resource Role
+php artisan make:filament-relation-manager RoleResource Permissions name
+        
     

@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\ColisResource\Pages;
+namespace App\Filament\Resources\RoleResource\Pages;
 
-use App\Filament\Resources\ColisResource;
+use App\Filament\Resources\RoleResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
 
-class ListColis extends ListRecords
+class ListRoles extends ListRecords
 {
-    protected static string $resource = ColisResource::class;
+    protected static string $resource = RoleResource::class;
 
     protected function getActions(): array
     {

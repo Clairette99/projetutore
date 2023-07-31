@@ -71,25 +71,44 @@ class RolesAndPermissionsSeeder extends Seeder
             $adminPermission2,
             
          ]);
-        
-        // $moderatorRole = Role::create(['name' => 'moderator'])->syncPermissions([
-          //  $userPermission2,
-           //// $Permission2,
-           // $adminPermission1,
-        // ]);
 
-       //  $developerRole = Role::create(['name' => 'developer'])->syncPermissions([
-         //   $adminPermission1,
-        // ]);
+         $adminRole = Role::create(['name' => 'admin'])->syncPermissions([
+            $userPermission1,
+            $userPermission2,
+            $userPermission3,
+            $userPermission4,
+            $rolePermission1,
+            $rolePermission2,
+            $rolePermission3,
+            $rolePermission4,
+            $Permission1,
+            $Permission2,
+            $Permission3,
+            $Permission4,
+            $adminPermission1,
+            $adminPermission2,
+            
+         ]);
         
-        // User::create ([
-         //   'name' => 'super admin',
-          //  'is_admin' => 1,
-          //  'email' => 'super@admin.com',
-           // 'email_verified_at' => now(),
-           // 'password' => Hash::make('password'),
-           // 'remenber_token' => Str::random(10),
-         //])->assignRole($superAdminRole);
+        $moderatorRole = Role::create(['name' => 'moderator'])->syncPermissions([
+           $userPermission2,
+           $rolePermission2,
+            $Permission2,
+           $adminPermission1,
+        ]);
+
+        $developerRole = Role::create(['name' => 'developer'])->syncPermissions([
+            $adminPermission1,
+        ]);
+        
+        User::create ([
+          'name' => 'super admin',
+           'is_admin' => 1,
+           'email' => 'super@admin.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'remenber_token' => Str::random(10),
+         ])->assignRole($superAdminRole);
 
          User::create ([
             'name' => 'admin',
@@ -100,23 +119,23 @@ class RolesAndPermissionsSeeder extends Seeder
             'remenber_token' => Str::random(10),
          ])->assignRole($adminRole);
 
-         //User::create ([
-          //  'name' => 'moderator',
-          //  'is_admin' => 1,
-          //  'email' => 'moderator@admin.com',
-          //  'email_verified_at' => now(),
-          //  'password' => Hash::make('password'),
-          //  'remenber_token' => Str::random(10),
-         //])->assignRole($moderatorRole);
+         User::create ([
+            'name' => 'moderator',
+            'is_admin' => 1,
+           'email' => 'moderator@admin.com',
+           'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+           'remenber_token' => Str::random(10),
+         ])->assignRole($moderatorRole);
 
-        // User::create ([
-          //  'name' => 'developer',
-           // 'is_admin' => 1,
-           // 'email' => 'developer@admin.com',
-           // 'email_verified_at' => now(),
-            //'password' => Hash::make('password'),
-            //'remenber_token' => Str::random(10),
-         //])->assignRole($developerRole);
+         User::create ([
+           'name' => 'developer',
+            'is_admin' => 1,
+            'email' => 'developer@admin.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'remenber_token' => Str::random(10),
+         ])->assignRole($developerRole);
 
         for ($i=1; $i <50; $i++) {
             User::create ([
@@ -129,7 +148,7 @@ class RolesAndPermissionsSeeder extends Seeder
 
              ])->assignRole($userRole);
 
-         //}
+         }
          
     }
 }
